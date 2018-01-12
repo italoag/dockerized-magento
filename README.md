@@ -8,6 +8,7 @@ If you are on Linux you should install
 
 - [docker](http://docs.docker.com/compose/install/#install-docker) and
 - [docker-compose (formerly known as fig)](http://docs.docker.com/compose/install/#install-compose)
+- [docker as a non-root user](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 If you are running on [Mac OS](https://docs.docker.com/engine/installation/mac/) or [Windows](https://docs.docker.com/engine/installation/windows/) you can install the [Docker Toolbox](https://docs.docker.com/engine/installation/mac/) which contains docker, docker-compose and docker-machine.
 
@@ -22,7 +23,7 @@ If you are using docker **natively** you can use this command:
 
 ```bash
 sudo su
-echo "127.0.0.1    dockerized-magento.local" >> /etc/hosts
+echo "127.0.0.1    magento.local" >> /etc/hosts
 ```
 
 ### For Mac Users
@@ -86,14 +87,40 @@ Once the installation is finished the installer will print the URL and the crede
 ...
 installer_1      | phpMyAdmin: http://dockerized-magento.local:8080
 installer_1      |  - Username: root
-installer_1      |  - Password: pw
+installer_1      |  - Password: 123654a
 installer_1      |
-installer_1      | Backend: http://dockerized-magento.local/admin
+installer_1      | Backend: http://magento.local/admin
 installer_1      |  - Username: admin
-installer_1      |  - Password: password123
+installer_1      |  - Password: 123654a
 installer_1      |
-installer_1      | Frontend: http://dockerized-magento.local/
+installer_1      | Frontend: http://magento.local/
 
+```
+
+Troubleshooting
+
+1. DOCKER_HOST 
+
+```bash
+export DOCKER_HOST=127.0.0.1
+```
+
+2. Unknown column 'sales_bestsellers_aggregated
+
+```bash
+./magento magerun cache:dir:flush
+./magento magerun cache:clean
+./magento magerun index:reindex:all
+
+./magento enter dockerizedmagento_cache_1
+root@a43067ce0136:/data# redis-cli flushall
+
+```
+
+3. Add composer to your github authorized applications and copy [generated token](https://github.com/settings/tokens/new). 
+
+```bash
+./magento composer -g config github-oauth.github.com YOUR_TOKEN_HERE 
 ```
 
 [![Animation: Installation and first project start](documentation/installation-and-first-start-animation.gif)](https://s3.amazonaws.com/andreaskoch/dockerized-magento/installation/Dockerized-Magento-Installation-Linux-no-sound.mp4)
@@ -167,7 +194,7 @@ I set the default domain name to `dockerized-magento.local`. To change the domai
 ```yaml
 installer:
   environment:
-    DOMAIN: dockerized-magento.local
+    DOMAIN: magento.local
 ```
 
 ### Using a different SSL certificate
@@ -193,7 +220,7 @@ installer:
 		ADMIN_USERNAME: admin
 		ADMIN_FIRSTNAME: Admin
 		ADMIN_LASTNAME: Inistrator
-		ADMIN_PASSWORD: password123
+		ADMIN_PASSWORD: 123654a
 		ADMIN_FRONTNAME: admin
 		ADMIN_EMAIL: admin@example.com
 ```

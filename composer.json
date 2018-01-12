@@ -13,7 +13,36 @@
     "aydin-hassan/magento-core-composer-installer": "*",
     "colinmollenhour/modman": "*",
     "theseer/autoload": "*",
-    "magento/core": "^1.9"
+    "magento/core": "^1.9",
+    "tm/argento": "dev-master",
+    "tm/attributepages": "dev-master",
+    "tm/bot-protection": "dev-master",
+    "tm/cache": "dev-master",
+    "tm/countdowntimer": "dev-master",
+    "tm/dailydeals": "dev-master",
+    "tm/easyflags": "dev-master",
+    "tm/easylightbox": "dev-master",
+    "tm/easynavigation": "dev-master",
+    "tm/firecheckout": "dev-master",
+    "tm/helpdesk": "dev-master",
+    "tm/pagespeed": "dev-master",
+    "tm/prozoom": "dev-master",
+    "tm/quickshopping": "dev-master",
+    "tm/productvideos": "dev-master",
+    "tm/recaptcha": "dev-master",
+    "tm/review-reminder": "dev-master",
+    "tm/smartsuggest": "dev-master",
+    "tm/socialsuite": "dev-master",
+    "tm/testimonials": "dev-master",
+    "tm/seo-suite": "dev-master",
+    "tm/sold-together": "dev-master",
+    "tm/easycolorswatches": "dev-master",
+    "tm/ajax-layered-navigation": "dev-master",
+    "tm/newsletterbooster": "dev-master",
+    "tm/templatem001": "dev-master",
+    "tm/templatef001": "dev-master",
+    "tm/templatef002": "dev-master",
+    "tm/affiliate-suite": "dev-master"
   },
   "require-dev": {
     "aoepeople/aoe_profiler": "v0.3.0",
@@ -22,15 +51,22 @@
   "repositories": [
     {
       "type": "composer",
+      "url": "http://tmhub.github.io/packages"
+    },
+    {
+      "type": "composer",
       "url": "https://packages.firegento.com"
     }
   ],
   "extra": {
     "magento-root-dir": "web",
-    "auto-append-gitignore": true
+    "auto-append-gitignore": true,
+    "magento-deploystrategy": "symlink",
+    "magento-force": true
   },
   "config": {
-    "discard-changes": true
+    "discard-changes": true,
+    "secure-http": false
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -1,16 +1,16 @@
 installer:
   image: andreaskoch/dockerized-magento-installer
   environment:
-    DOMAIN: dockerized-magento.local
+    DOMAIN: magento.local
     MAGENTO_ROOT: /var/www/html/web
     MYSQL_HOST: mysql
     MYSQL_DATABASE: magento
     MYSQL_USER: root
-    MYSQL_PASSWORD: pw
+    MYSQL_PASSWORD: 123654a
     ADMIN_USERNAME: admin
     ADMIN_FIRSTNAME: Admin
     ADMIN_LASTNAME: Inistrator
-    ADMIN_PASSWORD: password123
+    ADMIN_PASSWORD: 123654a
     ADMIN_FRONTNAME: admin
     ADMIN_EMAIL: admin@example.com
     ENCRYPTIONKEY: 731aea833710535779fe8c7c49bc6c4d
@@ -63,7 +63,7 @@ mysql:
   ports:
     - "3306:3306"
   environment:
-    MYSQL_ROOT_PASSWORD: pw
+    MYSQL_ROOT_PASSWORD: 123654a
   volumes:
     - ./data/mysql:/var/lib/mysql
 solr:
