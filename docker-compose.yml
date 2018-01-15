@@ -6,7 +6,7 @@ installer:
     MYSQL_HOST: mysql
     MYSQL_DATABASE: magento
     MYSQL_USER: root
-    MYSQL_PASSWORD: 123654a
+    MYSQL_PASSWORD: pw
     ADMIN_USERNAME: admin
     ADMIN_FIRSTNAME: Admin
     ADMIN_LASTNAME: Inistrator
@@ -14,6 +14,7 @@ installer:
     ADMIN_FRONTNAME: admin
     ADMIN_EMAIL: admin@example.com
     ENCRYPTIONKEY: 731aea833710535779fe8c7c49bc6c4d
+    GITHUB_TOKEN: 57146d6cd9b670db8d6605c6bea20c8a1e33c4ed1
   volumes_from:
     - nginx
   volumes:
@@ -63,7 +64,7 @@ mysql:
   ports:
     - "3306:3306"
   environment:
-    MYSQL_ROOT_PASSWORD: 123654a
+    MYSQL_ROOT_PASSWORD: pw
   volumes:
     - ./data/mysql:/var/lib/mysql
 solr:

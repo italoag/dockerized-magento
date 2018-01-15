@@ -6,7 +6,7 @@ A dockerized version of "Magento Community Edition 1.9.x"
 
 If you are on Linux you should install
 
-- [docker](http://docs.docker.com/compose/install/#install-docker) and
+- [docker](http://docs.docker.com/compose/install/#install-docker) and [for ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce-1)
 - [docker-compose (formerly known as fig)](http://docs.docker.com/compose/install/#install-compose)
 - [docker as a non-root user](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
@@ -63,10 +63,18 @@ I suppose it will work on Windows, but I have not tested it. And I suspect that 
 
 1. Make sure you have docker and docker-compose on your system
 2. Clone the repository
-3. Start the projects using `./magento start` or `docker-compose up`
 
 ```bash
-git clone https://github.com/andreaskoch/dockerized-magento.git && cd dockerized-magento
+git clone https://github.com/tmhub/dockerized-magento.git && cd dockerized-magento
+```
+
+3. Set [github token](https://github.com/settings/tokens/new)
+   - Open docker-compose.yml
+   - Find line 17 GITHUB_TOKEN and set your token 
+
+4. Start the projects using `./magento start` or `docker-compose up`
+
+```bash
 ./magento start
 ```
 
@@ -85,9 +93,9 @@ Once the installation is finished the installer will print the URL and the crede
 
 ```
 ...
-installer_1      | phpMyAdmin: http://dockerized-magento.local:8080
+installer_1      | phpMyAdmin: http://magento.local:8080
 installer_1      |  - Username: root
-installer_1      |  - Password: 123654a
+installer_1      |  - Password: pw
 installer_1      |
 installer_1      | Backend: http://magento.local/admin
 installer_1      |  - Username: admin

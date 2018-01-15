@@ -11,6 +11,8 @@ set -e
 #####################################
 function updateMagento() {
 	cd /var/www/html
+	composer config --global process-timeout 2000
+	composer -g config github-oauth.github.com $GITHUB_TOKEN
 	composer update
 }
 
@@ -110,6 +112,7 @@ substitute-env-vars.sh /etc /etc/fpc.xml.tmpl
 echo "Overriding Magento Configuration"
 cp -v /etc/local.xml /var/www/html/web/app/etc/local.xml
 cp -v /etc/fpc.xml /var/www/html/web/app/etc/fpc.xml
+cp -v /var/www/html/web/errors/local.xml.sample /var/www/html/web/errors/local.xml
 chgrp -R 33 $MAGENTO_ROOT/app/etc
 
 echo "Installing Sample Data: Media"
