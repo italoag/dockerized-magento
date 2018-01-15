@@ -14,7 +14,7 @@ installer:
     ADMIN_FRONTNAME: admin
     ADMIN_EMAIL: admin@example.com
     ENCRYPTIONKEY: 731aea833710535779fe8c7c49bc6c4d
-    GITHUB_TOKEN: 57146d6cd9b670db8d6605c6bea20c8a1e33c4ed1
+    GITHUB_TOKEN: 111
   volumes_from:
     - nginx
   volumes:
