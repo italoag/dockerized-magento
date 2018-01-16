@@ -105,7 +105,7 @@ installer_1      | Frontend: http://magento.local/
 
 ```
 
-Troubleshooting
+### Troubleshooting
 
 1. DOCKER_HOST 
 
