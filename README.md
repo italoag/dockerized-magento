@@ -104,6 +104,7 @@ installer_1      |
 installer_1      | Frontend: http://magento.local/
 
 ```
+[![Animation: Installation and first project start](documentation/installation-and-first-start-animation.gif)](https://s3.amazonaws.com/andreaskoch/dockerized-magento/installation/Dockerized-Magento-Installation-Linux-no-sound.mp4)
 
 ### Troubleshooting
 
@@ -131,8 +132,6 @@ root@a43067ce0136:/data# redis-cli flushall
 ./magento composer -g config github-oauth.github.com YOUR_TOKEN_HERE 
 ```
 
-[![Animation: Installation and first project start](documentation/installation-and-first-start-animation.gif)](https://s3.amazonaws.com/andreaskoch/dockerized-magento/installation/Dockerized-Magento-Installation-Linux-no-sound.mp4)
-
 **Note**: The build process and the installation process will take a while if you start the project for the first time. After that, starting and stoping the project will be a matter of seconds.
 
 ## Usage
@@ -141,6 +140,11 @@ You can control the project using the built-in `magento`-script which is basical
 
 ```bash
 ./magento <action>
+```
+
+### Install custom package
+```bash
+composer require tm/ajax-pro:dev-master --prefer-source  --ignore-platform-reqs
 ```
 
 **Available Actons**
